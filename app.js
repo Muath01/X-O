@@ -6,14 +6,10 @@ class Game{
     }
 
     changeTurn(event){
-        console.log(event.target.innerHTML);
-        if(this.x && (!isNaN(event.target.innerHTML))){
-            
+        if(this.x && !this.checkWinner(!isNaN(event.target.innerHTML))){
             event.target.innerHTML = "X";
-            this.x = false;
-            
-            
-        }else if(!this.x && (!isNaN(event.target.innerHTML))){
+            this.x = false;           
+        }else if(!this.x && !this.checkWinner (!isNaN(event.target.innerHTML))){
             event.target.innerHTML = "O";
             this.x = true;
           }
@@ -31,23 +27,22 @@ class Game{
            })
            for(let i = 0; i < warr.length-2; i++){
             if(warr[i].innerHTML === warr[i+1].innerHTML && warr[i].innerHTML === warr[i+2].innerHTML){
-                console.log("winner");
-                // setTimeout(() => { document. location. reload()  }, 3000);
-                break;
+                return true;
             }else if(i<=2 && warr[i].innerHTML === warr[i+3].innerHTML && warr[i].innerHTML === warr[i+6].innerHTML){
-                console.log("winner2");
-                break;
+                return true;
             }else if(i <= 2 && warr[i].innerHTML === warr[i+2].innerHTML && warr[i].innerHTML === warr[i+4].innerHTML){
-                console.log("winner3");
-                break;
+                return true;
             }else if(i == 0 && warr[i].innerHTML === warr[4].innerHTML && warr[i].innerHTML === warr[8].innerHTML){
-                console.log("winnder 4 ")
-                break;
+                return true;   
             }
            }
         }
         reset(){
+            setTimeout(()=>{document.location.reload()},2000)
             document.location.reload()  
+        }
+        gameOver(){
+
         }
     }
 
@@ -69,4 +64,5 @@ tick.boxes.forEach(box =>{
 
 tick.cehckBtn.addEventListener("click", ()=>{
     tick.checkWinner();
+    console.log(tick.checkWinner())
 })
