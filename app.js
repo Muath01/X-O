@@ -10,7 +10,6 @@ class Game{
             event.target.innerHTML = "X";
             this.x = false;           
         }else if(!this.x && !this.checkWinner() && event.target.innerHTML ==""){
-            console.log("function else: ", this.checkWinner())
             event.target.innerHTML = "O";
             this.x = true;
           }
@@ -46,7 +45,6 @@ class Game{
 
 const tick = new Game();
 
-
 tick.boxes.forEach(box =>{
     box.addEventListener("click", (event)=>{
         tick.changeTurn(event);
@@ -58,5 +56,3 @@ tick.cehckBtn.addEventListener("click", ()=>{
     tick.checkWinner();
     console.log(tick.checkWinner())
 })
-
-tick.checkWinner();
