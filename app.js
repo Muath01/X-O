@@ -6,26 +6,34 @@ class Game{
     }
 
     changeTurn(event){
-        if(this.x && !this.checkWinner(!isNaN(event.target.innerHTML))){
+        console.log("-----")
+        console.log("func", this.checkWinner())
+        console.log("-----")
+        if(this.x && !this.checkWinner() && event.target.innerHTML ==""){
+            console.log("first if", this.checkWinner())
+            console.log("hi")
             event.target.innerHTML = "X";
             this.x = false;           
-        }else if(!this.x && !this.checkWinner (!isNaN(event.target.innerHTML))){
+        }else if(!this.x && !this.checkWinner() && event.target.innerHTML ==""){
+            console.log("function else: ", this.checkWinner())
             event.target.innerHTML = "O";
             this.x = true;
           }
 
         
-        //this.checkWinner();
+        // this.checkWinner();
     }
     
     checkWinner(){
+        console.log("helslo")
         let warr = [];
         this.boxes.forEach(box =>{
             warr.push(box);
             })
-           warr.forEach(arr =>{
-           })
+        //    warr.forEach(arr =>{
+        //    })
            for(let i = 0; i < warr.length-2; i++){
+               if(warr[i].innerHTML != ""){
             if(warr[i].innerHTML === warr[i+1].innerHTML && warr[i].innerHTML === warr[i+2].innerHTML){
                 return true;
             }else if(i<=2 && warr[i].innerHTML === warr[i+3].innerHTML && warr[i].innerHTML === warr[i+6].innerHTML){
@@ -36,6 +44,7 @@ class Game{
                 return true;   
             }
            }
+        }
         }
         reset(){
             setTimeout(()=>{document.location.reload()},2000)
@@ -66,3 +75,6 @@ tick.cehckBtn.addEventListener("click", ()=>{
     tick.checkWinner();
     console.log(tick.checkWinner())
 })
+
+tick.checkWinner();
+//919068d
