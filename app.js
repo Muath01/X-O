@@ -7,20 +7,19 @@ class Game{
 
     changeTurn(event){
         console.log(event.target.innerHTML);
-        console.log("X at first", this.x)
-        if(this.x && event.target.innerHTML != "X" || event.target.innerHTML != "O"){
-            console.log("herefdf")
+        if(this.x){
+            
             event.target.innerHTML = "X";
             this.x = false;
-            console.log(this.x)
-            if(!this.x){
-                console.log("helooo")
-            }
-        }else if(!this.x && event.target.innerHTML != "X" || event.target.innerHTML != "O"){
+            
+            
+        }else{
             event.target.innerHTML = "O";
             this.x = true;
           }
-        this.checkWinner();
+
+        
+        //this.checkWinner();
     }
     
     checkWinner(){
@@ -33,16 +32,18 @@ class Game{
            for(let i = 0; i < warr.length-2; i++){
             if(warr[i].innerHTML === warr[i+1].innerHTML && warr[i].innerHTML === warr[i+2].innerHTML){
                 console.log("winner");
-                setTimeout(() => { document. location. reload()  }, 3000);
+                // setTimeout(() => { document. location. reload()  }, 3000);
                 break;
-
             }else if(i<=2 && warr[i].innerHTML === warr[i+3].innerHTML && warr[i].innerHTML === warr[i+6].innerHTML){
-                console.log("winner");
+                console.log("winner2");
                 break;
-            }else if(i <= 2 && warr[i].innerHTML === warr[i+4].innerHTML || warr[i+2].innerHTML === warr[i+6]){
-                console.log("winner");
+            }else if(i <= 2 && warr[i].innerHTML === warr[i+2].innerHTML && warr[i].innerHTML === warr[i+4].innerHTML){
+                console.log("winner3");
                 break;
-                }
+            }else if(i == 0 && warr[i].innerHTML === warr[4].innerHTML && warr[i].innerHTML === warr[8].innerHTML){
+                console.log("winnder 4 ")
+                break;
+            }
            }
         }
         reset(){
@@ -67,5 +68,5 @@ tick.boxes.forEach(box =>{
 })
 
 tick.cehckBtn.addEventListener("click", ()=>{
-    tick.reset();
+    tick.checkWinner();
 })
