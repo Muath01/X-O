@@ -7,13 +7,13 @@ class Game{
 
     changeTurn(event){
         console.log(event.target.innerHTML);
-        if(this.x){
+        if(this.x && (!isNaN(event.target.innerHTML))){
             
             event.target.innerHTML = "X";
             this.x = false;
             
             
-        }else{
+        }else if(!this.x && (!isNaN(event.target.innerHTML))){
             event.target.innerHTML = "O";
             this.x = true;
           }
