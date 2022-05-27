@@ -7,10 +7,16 @@ class Game{
 
     changeTurn(event){
         console.log(event.target.innerHTML);
-        if(this.x){
+        console.log("X at first", this.x)
+        if(this.x && event.target.innerHTML != "X" || event.target.innerHTML != "O"){
+            console.log("herefdf")
             event.target.innerHTML = "X";
             this.x = false;
-        }else{
+            console.log(this.x)
+            if(!this.x){
+                console.log("helooo")
+            }
+        }else if(!this.x && event.target.innerHTML != "X" || event.target.innerHTML != "O"){
             event.target.innerHTML = "O";
             this.x = true;
           }
@@ -39,6 +45,9 @@ class Game{
                 }
            }
         }
+        reset(){
+            document.location.reload()  
+        }
     }
 
          
@@ -58,5 +67,5 @@ tick.boxes.forEach(box =>{
 })
 
 tick.cehckBtn.addEventListener("click", ()=>{
-    tick.checkWinner();
+    tick.reset();
 })
