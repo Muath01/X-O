@@ -6,12 +6,7 @@ class Game{
     }
 
     changeTurn(event){
-        console.log("-----")
-        console.log("func", this.checkWinner())
-        console.log("-----")
         if(this.x && !this.checkWinner() && event.target.innerHTML ==""){
-            console.log("first if", this.checkWinner())
-            console.log("hi")
             event.target.innerHTML = "X";
             this.x = false;           
         }else if(!this.x && !this.checkWinner() && event.target.innerHTML ==""){
@@ -19,19 +14,13 @@ class Game{
             event.target.innerHTML = "O";
             this.x = true;
           }
-
-        
-        // this.checkWinner();
     }
     
     checkWinner(){
-        console.log("helslo")
         let warr = [];
         this.boxes.forEach(box =>{
             warr.push(box);
             })
-        //    warr.forEach(arr =>{
-        //    })
            for(let i = 0; i < warr.length-2; i++){
                if(warr[i].innerHTML != ""){
             if(warr[i].innerHTML === warr[i+1].innerHTML && warr[i].innerHTML === warr[i+2].innerHTML){
@@ -55,12 +44,6 @@ class Game{
         }
     }
 
-         
-let winArr = [
-    0,1,2,
-    3,4,5,
-    6,7,8
-]
 const tick = new Game();
 
 
@@ -77,4 +60,3 @@ tick.cehckBtn.addEventListener("click", ()=>{
 })
 
 tick.checkWinner();
-//919068d
