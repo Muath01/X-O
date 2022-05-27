@@ -4,30 +4,35 @@ class Game{
         this.cehckBtn = document.querySelector(".checker")
     }
     checkWinner(){
-        let wArr = [];
+        let warr = [];
         this.boxes.forEach(box =>{
             //console.log(box.innerHTML)
-            wArr.push(box);
+            warr.push(box);
             })
-           wArr.forEach(arr =>{
+           warr.forEach(arr =>{
                //console.log(arr);
            })
-           console.log(wArr[0].innerHTML);
-           console.log(wArr[1].innerHTML);
-           console.log(wArr[2].innerHTML);
-           console.log("here");
-           for(let i = 0; i < wArr.length; i++){
-            for(let j = 1; j < wArr.length; j++){
-                for(let k = 2; k < wArr.length; k++){
-                    if(wArr[0].innerHTML == wArr[1].innerHTML && wArr[0].innerHTML == wArr[2].innerHTML){
-                        console.log("we have a winner")
-                    } 
-                }
+           for(let i = 0; i < warr.length-2; i++){
+                console.log("here:",warr[i].innerHTML, warr[i+1].innerHTML, warr[i+2].innerHTML);
+                if(warr[i].innerHTML === warr[i+1].innerHTML && warr[i].innerHTML === warr[i+2].innerHTML){
+                    console.log("we have a winner")
+                    break;
             }
-           }
-           
+        }
+            for(let i = 0; i < warr.length-6; i++){
+                console.log(`Here[${warr.length}]`,warr[i].innerHTML, warr[i+3].innerHTML, warr[i+6].innerHTML);
+                if(warr[i].innerHTML === warr[i+3].innerHTML && warr[i].innerHTML === warr[i+6].innerHTML){
+                    console.log("we have a winner")
+                    //break;        
+                }else if(warr[i].innerHTML === warr[i+4].innerHTML || warr[i+2].innerHTML === warr[i+6]){
+                    console.log("We have a winner 2")
+                }
+            
         }
     }
+}
+         
+       
 
 
 
@@ -49,4 +54,3 @@ tick.boxes.forEach(box =>{
 tick.cehckBtn.addEventListener("click", ()=>{
     tick.checkWinner();
 })
-
