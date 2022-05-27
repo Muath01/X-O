@@ -15,28 +15,20 @@ class Game{
            for(let i = 0; i < warr.length-2; i++){
                 console.log("here:",warr[i].innerHTML, warr[i+1].innerHTML, warr[i+2].innerHTML);
                 if(warr[i].innerHTML === warr[i+1].innerHTML && warr[i].innerHTML === warr[i+2].innerHTML){
-                    console.log("we have a winner");
+                    console.log("we have a winner1");
                     break;
-            }
-        }
-            for(let i = 0; i < warr.length-6; i++){
-                console.log(`Here[${warr.length}]`,warr[i].innerHTML, warr[i+3].innerHTML, warr[i+6].innerHTML);
-                if(warr[i].innerHTML === warr[i+3].innerHTML && warr[i].innerHTML === warr[i+6].innerHTML){
-                    console.log("we have a winner");
-                    break;        
-                }else if(warr[i].innerHTML === warr[i+4].innerHTML || warr[i+2].innerHTML === warr[i+6]){
-                    console.log("We have a winner 2");
-                    break;
+            }else if(i<=2 && warr[i].innerHTML === warr[i+3].innerHTML && warr[i].innerHTML === warr[i+6].innerHTML){
+                console.log("we have a winner2");
+                break;
+            }else if(i <= 2 && warr[i].innerHTML === warr[i+4].innerHTML || warr[i+2].innerHTML === warr[i+6]){
+                console.log("We have a winner 3");
+                break;
                 }
-            
+           }
         }
     }
-}
+
          
-       
-
-
-
 let winArr = [
     0,1,2,
     3,4,5,
