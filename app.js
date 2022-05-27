@@ -27,7 +27,7 @@ class Game{
            for(let i = 0; i < warr.length-2; i++){
             if(warr[i].innerHTML === warr[i+1].innerHTML && warr[i].innerHTML === warr[i+2].innerHTML){
                 console.log("winner");
-                document. location. reload()
+                setTimeout(() => { document. location. reload()  }, 3000);
                 break;
 
             }else if(i<=2 && warr[i].innerHTML === warr[i+3].innerHTML && warr[i].innerHTML === warr[i+6].innerHTML){
