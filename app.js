@@ -2,26 +2,39 @@ class Game{
     constructor(){
         this.boxes = document.querySelectorAll(".inner-square")
         this.cehckBtn = document.querySelector(".checker")
+        this.x = true;
     }
+
+    changeTurn(event){
+        console.log(event.target.innerHTML);
+        if(this.x){
+            event.target.innerHTML = "X";
+            this.x = false;
+        }else{
+            event.target.innerHTML = "O";
+            this.x = true;
+          }
+        this.checkWinner();
+    }
+    
     checkWinner(){
         let warr = [];
         this.boxes.forEach(box =>{
-            //console.log(box.innerHTML)
             warr.push(box);
             })
            warr.forEach(arr =>{
-               //console.log(arr);
            })
            for(let i = 0; i < warr.length-2; i++){
-                console.log("here:",warr[i].innerHTML, warr[i+1].innerHTML, warr[i+2].innerHTML);
-                if(warr[i].innerHTML === warr[i+1].innerHTML && warr[i].innerHTML === warr[i+2].innerHTML){
-                    console.log("we have a winner1");
-                    break;
+            if(warr[i].innerHTML === warr[i+1].innerHTML && warr[i].innerHTML === warr[i+2].innerHTML){
+                console.log("winner");
+                document. location. reload()
+                break;
+
             }else if(i<=2 && warr[i].innerHTML === warr[i+3].innerHTML && warr[i].innerHTML === warr[i+6].innerHTML){
-                console.log("we have a winner2");
+                console.log("winner");
                 break;
             }else if(i <= 2 && warr[i].innerHTML === warr[i+4].innerHTML || warr[i+2].innerHTML === warr[i+6]){
-                console.log("We have a winner 3");
+                console.log("winner");
                 break;
                 }
            }
@@ -39,7 +52,7 @@ const tick = new Game();
 
 tick.boxes.forEach(box =>{
     box.addEventListener("click", (event)=>{
-        box.innerHTML = "X"
+        tick.changeTurn(event);
  
     })
 })
