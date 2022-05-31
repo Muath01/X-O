@@ -52,7 +52,4 @@ tick.boxes.forEach(box =>{
     })
 })
 
-tick.cehckBtn.addEventListener("click", ()=>{
-    tick.checkWinner();
-    console.log(tick.checkWinner())
-})
+
