@@ -2,6 +2,7 @@ body {
 margin: 0;
 padding: 0;
 background-color: #000000;
+
 }
 div {
 overflow: hidden;
@@ -15,6 +16,7 @@ width: 33.3%;
 padding-bottom: 33.3%;
 border: 3px solid rgb(252, 252, 252);
 background-color: rgb(0, 0, 0);
+
 }
 .outer-square {
 position: absolute;
@@ -22,7 +24,8 @@ left: 0;
 top: 0;
 width: 90%;
 height: 90%;
-background-color: rgb(247, 247, 247);
+background: url("./stone1.png");
+background-color: rgb(255, 255, 255);
 margin: 5%;
 display: -webkit-flex;
 -webkit-flex-wrap: wrap;
@@ -30,12 +33,35 @@ display: flex;
 flex-wrap: wrap;
 }
 
+.one{
+    background-color: black;
+    /* background: url("./stone1.png"); */
+}
 .inner-grid {
 width: 33.3%;
 height: 33.3%;
 border: 1px solid rgb(0, 221, 255);
 display: table;
+
 }
+
+.piece-on{
+    cursor: pointer;
+    margin:auto;
+    background-color: black;
+    background: url("./stone1.png");
+
+}
+
+.circle{
+    border: 2px solid black;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    margin: auto;
+}
+
 .inner-square {
 line-height: 100%;
 font-size: 50px;
@@ -43,13 +69,25 @@ font-weight: bold;
 display: table-cell;
 text-align: center;
 vertical-align: middle;
+
 }
 
 .grid-container{
     border: none;
 }
 
+.invisible {
+    display: none;
+}
 
+.hold {
+    border: solid 4px #ccc;
+  }
+  
+.hovered {
+    background-color: #f4f4f4;
+    border-style: dashed;
+  }
 
 .checker{
     position: absolute;
