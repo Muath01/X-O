@@ -23,12 +23,18 @@ class Game{
            for(let i = 0; i < warr.length-2; i++){
                if(warr[i].innerHTML != ""){
             if(warr[i].innerHTML === warr[i+1].innerHTML && warr[i].innerHTML === warr[i+2].innerHTML){
+                console.log(warr[i].innerHTML, warr[i+1].innerHTML, warr[i+2].innerHTML)
+                console.log("1st")
                 return true;
             }else if(i<=2 && warr[i].innerHTML === warr[i+3].innerHTML && warr[i].innerHTML === warr[i+6].innerHTML){
+                console.log("2nd")
                 return true;
-            }else if(i <= 2 && warr[i].innerHTML === warr[i+2].innerHTML && warr[i].innerHTML === warr[i+4].innerHTML){
+            }else if(i == 2 && warr[i].innerHTML === warr[i+2].innerHTML && warr[i].innerHTML === warr[i+3].innerHTML){
+                console.log(warr[i].innerHTML, warr[i+2].innerHTML, warr[i+4].innerHTML)
+                console.log("3rd")
                 return true;
             }else if(i == 0 && warr[i].innerHTML === warr[4].innerHTML && warr[i].innerHTML === warr[8].innerHTML){
+                console.log("4th")
                 return true;   
             }
            }
@@ -52,4 +58,9 @@ tick.boxes.forEach(box =>{
     })
 })
 
+const check = document.querySelector(".checker")
+
+check.addEventListener("click", ()=>{
+    console.log(tick.checkWinner())
+})
 
